@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TrayectoriaEducativaGraficas.Views.AfinidadVocacional"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:TrayectoriaEducativaGraficas.Models"
+    xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
+    xmlns:vm="clr-namespace:TrayectoriaEducativaGraficas.ViewModels"
+    Title="AfinidadVocacional"
+    x:DataType="vm:AfinidadVocacionalViewModel">
+    <VerticalStackLayout>
+        <telerik:RadCartesianChart HeightRequest="500">
+            <telerik:RadCartesianChart.HorizontalAxis>
+                <telerik:CategoricalAxis LabelFitMode="MultiLine" />
+            </telerik:RadCartesianChart.HorizontalAxis>
+            <telerik:RadCartesianChart.VerticalAxis>
+                <telerik:NumericalAxis
+                    LabelFitMode="MultiLine"
+                    MajorStep="1"
+                    Maximum="10"
+                    Minimum="0" />
+            </telerik:RadCartesianChart.VerticalAxis>
+            <telerik:RadCartesianChart.Series>
+                <telerik:BarSeries
+                    CategoryBinding="UnidadAnalisis"
+                    ItemsSource="{Binding Intereses}"
+                    ValueBinding="NivelUnidadAnalisis" />
+            </telerik:RadCartesianChart.Series>
+        </telerik:RadCartesianChart>
+    </VerticalStackLayout>
+</ContentPage>

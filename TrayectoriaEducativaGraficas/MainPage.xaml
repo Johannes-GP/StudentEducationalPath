@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TrayectoriaEducativaGraficas.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:TrayectoriaEducativaGraficas.Models"
+    xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:vm="clr-namespace:TrayectoriaEducativaGraficas.ViewModels"
+    x:Name="rima"
+    Title="Nivel: primaria"
+    Padding="10"
+    x:DataType="vm:MainViewModel">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior Command="{Binding LoadDataCommand}" EventName="Appearing" />
+    </ContentPage.Behaviors>
+
+    <VerticalStackLayout Spacing="10">
+        <Label
+            FontAttributes="Bold"
+            FontSize="20"
+            HorizontalTextAlignment="Center"
+            Text="Ciclo 2024 - 2025"
+            TextColor="Orange" />
+        <HorizontalStackLayout Spacing="10">
+            <Label Text="Estudiante:" />
+            <Label Text="Juan Carlos Guzmán Pito" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout BackgroundColor="DarkBlue">
+            <Label
+                Padding="10"
+                FontAttributes="Bold"
+                FontSize="20"
+                Text="Evaluación RIMA"
+                TextColor="White"
+                VerticalTextAlignment="Center" />
+            <Label
+                Padding="10"
+                FontFamily="TelerikFontExamples"
+                FontSize="24"
+                Text="&#xe815;"
+                TextColor="White"
+                VerticalTextAlignment="Center" />
+        </HorizontalStackLayout>
+        <Grid
+            x:Name="evaluaciones"
+            ColumnDefinitions="6*, 4*"
+            ColumnSpacing="20"
+            RowDefinitions="Auto, Auto, Auto, Auto, Auto"
+            RowSpacing="30">
+            <VerticalStackLayout Grid.Column="0" Spacing="10">
+                <Label Text="Lenguaje: Desarrollo esperado" />
+                <telerik:RadLinearProgressBar
+                    x:Name="ProgressBar"
+                    HeightRequest="20"
+                    ProgressFill="Green"
+                    SegmentCount="10"
+                    SegmentSeparatorFill="White"
+                    SegmentSeparatorThickness="4"
+                    Value="100" />
+            </VerticalStackLayout>
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                FontFamily="TelerikFontExamples"
+                FontSize="24"
+                Text="&#xe810;"
+                TextColor="Blue"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding MostrarModalCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <VerticalStackLayout
+                Grid.Row="1"
+                Grid.Column="0"
+                Spacing="10">
+                <Label Text="Ciencias: En desarrollo" />
+                <telerik:RadLinearProgressBar
+                    HeightRequest="20"
+                    ProgressFill="Goldenrod"
+                    SegmentCount="10"
+                    SegmentSeparatorFill="White"
+                    SegmentSeparatorThickness="4"
+                    TrackFill="Transparent"
+                    Value="60" />
+            </VerticalStackLayout>
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                FontFamily="TelerikFontExamples"
+                FontSize="24"
+                Text="&#xe810;"
+                TextColor="Blue"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding MostrarModalCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <VerticalStackLayout
+                Grid.Row="2"
+                Grid.Column="0"
+                Spacing="10">
+                <Label Text="Matemáticas: Requiere apoyo" />
+                <telerik:RadLinearProgressBar
+                    HeightRequest="20"
+                    ProgressFill="Red"
+                    SegmentCount="10"
+                    SegmentSeparatorFill="White"
+                    SegmentSeparatorThickness="4"
+                    TrackFill="Transparent"
+                    Value="40" />
+            </VerticalStackLayout>
+            <Label
+                Grid.Row="2"
+                Grid.Column="1"
+                FontFamily="TelerikFontExamples"
+                FontSize="24"
+                Text="&#xe810;"
+                TextColor="Blue"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding MostrarModalCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <VerticalStackLayout
+                Grid.Row="3"
+                Grid.Column="0"
+                Spacing="10">
+                <Label Text="Socioemocional: Intermedio" />
+                <telerik:RadLinearProgressBar
+                    HeightRequest="20"
+                    ProgressFill="Goldenrod"
+                    SegmentCount="10"
+                    SegmentSeparatorFill="White"
+                    SegmentSeparatorThickness="4"
+                    TrackFill="Transparent"
+                    Value="60" />
+            </VerticalStackLayout>
+            <Label
+                Grid.Row="3"
+                Grid.Column="1"
+                FontFamily="TelerikFontExamples"
+                FontSize="24"
+                Text="&#xe810;"
+                TextColor="Blue"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateToHabilidadSocioemocionalCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <VerticalStackLayout
+                Grid.Row="4"
+                Grid.Column="0"
+                Spacing="10">
+                <Label Text="Afinidad vocacional: Realista" />
+                <telerik:RadLinearProgressBar
+                    HeightRequest="20"
+                    ProgressFill="SkyBlue"
+                    SegmentCount="10"
+                    SegmentSeparatorFill="White"
+                    SegmentSeparatorThickness="4"
+                    TrackFill="Transparent"
+                    Value="70" />
+            </VerticalStackLayout>
+            <Label
+                Grid.Row="4"
+                Grid.Column="1"
+                FontFamily="TelerikFontExamples"
+                FontSize="24"
+                Text="&#xe810;"
+                TextColor="Blue"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateToAfinidadVocacionalCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+
+        <!--<Button Command="{Binding NavigateToHabilidadSocioemocionalCommand}" Text="Habilidad socioemocional" />
+        <Button Command="{Binding NavigateToAfinidadVocacionalCommand}" Text="Afinidad vocacional" />
+
+        <CollectionView ItemsSource="{Binding CamposFormativos}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:CampoFormativo">
+                    <StackLayout Padding="10">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            Text="{Binding Nombre}" />
+                        <Label FontSize="Small" Text="{Binding Resultado}" />
+                        <Button
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainViewModel}}, Path=NavigateToDetailCommand}"
+                            CommandParameter="{Binding .}"
+                            Text="Mostrar detalle" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>-->
+
+        <telerik:RadPopup.Popup>
+            <telerik:RadPopup
+                x:Name="popup"
+                IsOpen="{Binding IsPopupOpen}"
+                OutsideBackgroundColor="#66000000"
+                Placement="Center"
+                PlacementTarget="{x:Reference rima}">
+                <telerik:RadBorder
+                    Padding="5"
+                    BackgroundColor="DarkBlue"
+                    CornerRadius="6">
+                    <VerticalStackLayout Spacing="10">
+                        <Label
+                            Padding="10"
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            HorizontalTextAlignment="Center"
+                            Text="Detalle de resultados (Asignatura)"
+                            TextColor="White" />
+                        <telerik:RadDataGrid
+                            AutoGenerateColumns="False"
+                            ItemsSource="{Binding DatosGrid}"
+                            SelectionMode="None"
+                            UserEditMode="None"
+                            UserFilterMode="Disabled"
+                            UserGroupMode="Disabled"
+                            UserSortMode="None">
+                            <telerik:RadDataGrid.Columns>
+                                <telerik:DataGridTextColumn HeaderText="Unidad de análisis" PropertyName="Nombre" />
+                                <telerik:DataGridTextColumn HeaderText="Nivel de desempeño" PropertyName="NivelDesempeno" />
+                            </telerik:RadDataGrid.Columns>
+                        </telerik:RadDataGrid>
+                    </VerticalStackLayout>
+                </telerik:RadBorder>
+            </telerik:RadPopup>
+        </telerik:RadPopup.Popup>
+
+    </VerticalStackLayout>
+
+    <!--<VerticalStackLayout>
+        <CollectionView ItemsSource="{Binding CamposFormativos}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:CampoFormativo">
+                    <StackLayout Padding="10">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="Medium"
+                            Text="{Binding Nombre}" />
+                        <Label FontSize="Small" Text="{Binding Resultado}" />
+                        <Button
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MainViewModel}}, Path=NavigateToDetailCommand}"
+                            CommandParameter="{Binding .}"
+                            Text="Mostrar detalle" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>-->
+
+</ContentPage>

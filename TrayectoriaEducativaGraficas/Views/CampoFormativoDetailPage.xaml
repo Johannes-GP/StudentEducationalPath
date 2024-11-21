@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TrayectoriaEducativaGraficas.Views.CampoFormativoDetailPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:TrayectoriaEducativaGraficas.Models"
+    xmlns:vm="clr-namespace:TrayectoriaEducativaGraficas.ViewModels"
+    Title="{Binding CampoFormativoObject.Nombre}"
+    x:DataType="vm:CampoFormativoDetailViewModel">
+    <VerticalStackLayout>
+        <Label
+            HorizontalOptions="Center"
+            Text="{Binding CampoFormativoObject.Nombre}"
+            VerticalOptions="Center" />
+        <Label Text="{Binding CampoFormativoObject.Resultado}" />
+
+        <VerticalStackLayout IsVisible="{Binding CampoFormativoObject.UnidadesAnalisis, Converter={StaticResource NullOrEmptyConverter}}">
+            <Label Text="Unidades de análisis" />
+            <CollectionView ItemsSource="{Binding CampoFormativoObject.UnidadesAnalisis}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:UnidadAnalisis">
+                        <StackLayout Padding="10">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Medium"
+                                Text="{Binding Nombre}" />
+                            <Label FontSize="Small" Text="{Binding NivelDesempeno}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
